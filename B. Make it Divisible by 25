@@ -1,0 +1,31 @@
+#include<bits/stdc++.h>
+#include <iostream>
+using namespace std;
+int main()
+{
+    //A number is divisible by 25 if its last two digits are one of: 00, 25, 50, or 75.
+    //Start by finding one of the last two digits you need (either 0, 5, 2, or 7).
+    int t;
+    cin>>t;
+    while(t--){
+        
+        string str;
+        cin>>str;
+        int N = str.size();
+        int ans = INT_MAX;
+        for (int i = 0; i < N-1; i++) {
+            for (int j = i + 1; j < N; j++) {
+                int num = (str[i] - '0')  * 10 + (str[j] - '0');
+                if (num % 25 == 0) {
+                    //12743598  -> to make 75 remove in btw ie j-i-1 and after j ie n-j-1
+                    //  i  j
+                    int a = j - i - 1;
+                    int b = N - (j + 1);
+                    ans = min(ans, a + b);
+                }
+            }
+        }
+        cout<<ans<<endl;
+    }
+    
+}
