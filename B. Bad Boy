@@ -1,0 +1,15 @@
+// Online C++ compiler to run C++ program online
+#include<bits/stdc++.h>
+#include <iostream>
+using namespace std;
+int main() {
+    int t;
+    cin>>t;
+    while(t--){
+        int n,m,i,j;
+        cin>>n>>m>>i>>j;
+//hint isme hume ek yoyo ko initial se far rkhna hain then second yoyo ko first ke respect main door rkhna hain
+//and farthest are corners so after observing kisi na kisi corner main place hoga
+        cout<<1<<" "<<1<<" "<<n<<" "<<m<<endl;
+    }
+}
