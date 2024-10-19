@@ -1,0 +1,43 @@
+#include<bits/stdc++.h>
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--){
+        int n,k;
+        cin>>n>>k;
+        vector<int> stack1(n);
+        vector<int> stack2(n);
+        vector<int> stack3(n);
+        for(int i = 0; i<n; i++) cin>> stack1[i];
+        for(int i = 0; i<n; i++) cin>> stack2[i];
+        for(int i = 0; i<n; i++) cin>> stack3[i];
+//as we are doing OR operation agr koi bit or karne se 1 ban gai jo target knowledge main nahi hain 
+//so isse better hain set bits check karlo aur lene se pehle shuld not be affected
+//ya toh dono ki set bits lo comapre same hain nahi hain if not dont include
+//ya fir target knowledge ke sath take or of that value if still equal to target ie target remains intact so include
+        int ans = 0;
+        for(int i = 0; i<n; i++){
+            if ((k | stack1[i]) != k) break;
+            else ans |= stack1[i];
+        }
+        for(int i = 0; i<n; i++){
+            if(k|stack2[i] != stack2[i]){
+                //set bit pata lag gai
+                break;
+            }
+            ans|=stack2[i];
+        }
+        for(int i = 0; i<n; i++){
+            if(k|stack3[i] != stack3[i])
+                //set bit pata lag ga
+                break;
+            ans|=stack3[i];
+        }
+        if(ans == k) cout<<"YES"<<endl;
+        else cout<<"NO"<<endl;
+    }
+}
